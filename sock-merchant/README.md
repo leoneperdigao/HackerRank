@@ -1,3 +1,3 @@
 # Socket Merchant Problema
 
-![Explanation](http://placekitten.com/200/300?style=centerme)
+![Explanation](https://github.com/leoneperdigao/HackerRank/blob/master/sock-merchant/src/main/resources/img/socketMerchant.jpeg?style=centerme)
