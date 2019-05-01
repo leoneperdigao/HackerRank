@@ -54,11 +54,9 @@ public class WhiteboardImpl implements Whiteboard {
 		if (professional == null) {
 			movePostItFromAll(postIt);
 		} else {
-			professional.getPostItList().stream().forEach(post -> {
-				if (post.getId() == postIt.getId()) {
-					post.setLocation(postIt.getLocation());
-				}
-			});
+			professional.getPostItList().stream()
+			.filter(post -> post.getId() == postIt.getId())
+			.forEach(post -> post.setLocation(postIt.getLocation()));
 		}
 	}
 
@@ -79,12 +77,10 @@ public class WhiteboardImpl implements Whiteboard {
 	}
 
 	private void movePostItFromAll(PostIt postIt) {
-		this.getProfessionalList().stream().forEach(pr -> 
-			pr.getPostItList().stream().forEach(post -> {
-				if (post.getId() == postIt.getId()) {
-					post.setLocation(postIt.getLocation());
-				}
-			})
-		);
+		this.getProfessionalList()
+				.stream()
+				.forEach(pr -> pr.getPostItList().stream()
+								.filter(post -> post.getId() == postIt.getId())
+								.forEach(post -> post.setLocation(postIt.getLocation())));
 	}
 }
