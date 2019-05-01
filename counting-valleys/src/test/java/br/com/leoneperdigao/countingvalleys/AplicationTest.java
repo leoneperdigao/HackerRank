@@ -16,13 +16,17 @@ import br.com.leoneperdigao.countingvalleys.utils.FileUtils;
 public class AplicationTest {
 	
 	private static final String INPUT_0 = "src/test/resources/input/input00.txt";
+	private static final String INPUT_01 = "src/test/resources/input/input01.txt";
 	private static final String OUTPUT_0 = "src/test/resources/output/output00.txt";
+	private static final String OUTPUT_01 = "src/test/resources/output/output01.txt";
 	
 	private static int EXPECTED_0;
+	private static int EXPECTED_01;
 	
 	@Before
 	public void setup() throws IOException {
 		EXPECTED_0 = FileUtils.getEntrySize(OUTPUT_0);
+		EXPECTED_01 = FileUtils.getEntrySize(OUTPUT_01);
 	}
 
     @Test
@@ -33,5 +37,15 @@ public class AplicationTest {
     	
     	assertEquals(EXPECTED_0, Solution.countingValleys(entry, path));
     }
+    
+    @Test
+    public void test08() throws IOException {
+
+    	int entry = FileUtils.getEntrySize(INPUT_01);
+    	String path = FileUtils.getPath(INPUT_01);
+    	
+    	assertEquals(EXPECTED_01, Solution.countingValleys(entry, path));
+    }
+
     
 }
