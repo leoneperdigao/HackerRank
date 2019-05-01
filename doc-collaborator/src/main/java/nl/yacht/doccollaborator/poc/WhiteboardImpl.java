@@ -54,26 +54,25 @@ public class WhiteboardImpl implements Whiteboard {
 		if (professional == null) {
 			movePostItFromAll(postIt);
 		} else {
-			professional.getPostItList().stream()
-			.filter(post -> post.getId() == postIt.getId())
-			.forEach(post -> post.setLocation(postIt.getLocation()));
+			professional.getPostItList()
+				.stream()
+				.filter(post -> post.getId() == postIt.getId())
+				.forEach(post -> post.setLocation(postIt.getLocation()));
 		}
 	}
 
 	private void addPostItToAll(PostIt postIt) {
-		this.getProfessionalList().stream().forEach(pr -> {
-			if (!pr.getPostItList().contains(postIt)) {
-				pr.getPostItList().add(postIt);
-			}
-		});
+		this.getProfessionalList()
+				.stream()
+				.filter(pr -> !pr.getPostItList().contains(postIt))
+				.forEach(pr -> pr.getPostItList().add(postIt));
 	}
 
 	private void removePostItFromAll(PostIt postIt) {
-		this.getProfessionalList().stream().forEach(pr -> {
-			if (pr.getPostItList().contains(postIt)) {
-				pr.getPostItList().remove(postIt);
-			}
-		});
+		this.getProfessionalList()
+				.stream()
+				.filter(pr -> pr.getPostItList().contains(postIt))
+				.forEach(pr -> pr.getPostItList().remove(postIt));
 	}
 
 	private void movePostItFromAll(PostIt postIt) {
