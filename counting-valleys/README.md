@@ -1,6 +1,6 @@
 # Counting Valleys Problem
 
-[a link](https://www.hackerrank.com/challenges/counting-valleys/problem)
+[Link to HackerRank Challenge](https://www.hackerrank.com/challenges/counting-valleys/problem)
 
 Gary is an avid hiker. He tracks his hikes meticulously, paying close
 attention to small details like topography. During his last hike he took
